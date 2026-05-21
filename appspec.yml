@@ -1,0 +1,13 @@
+version: 0.0
+os: windows
+
+files:
+  - source: site
+    destination: C:\inetpub\wwwroot
+
+file_exists_behavior: OVERWRITE
+
+hooks:
+  ApplicationStart:
+    - location: scripts\start-iis.ps1
+      timeout: 300
