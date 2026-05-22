@@ -3,11 +3,15 @@ os: windows
 
 files:
   - source: site
-    destination: C:\inetpub\wwwroot
+    destination: 'C:\inetpub\wwwroot'
 
 file_exists_behavior: OVERWRITE
 
 hooks:
+  BeforeInstall:
+    - location: scripts\before-install.ps1
+      timeout: 300
+
   ApplicationStart:
     - location: scripts\start-iis.ps1
       timeout: 300
